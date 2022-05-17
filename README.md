@@ -6,6 +6,19 @@
 开发分支：feature/xxx
 个人测试：dev/yahui.jiang
 
+## 项目配置
+* vue2.x
+* vue-router@3.x
+* vant
+* eslint
+* prettier
+* cross-env
+* husky
+* commitlint
+* postcss
+* babel
+* axios
+
 ## Project setup
 
 ```
