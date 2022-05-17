@@ -9,6 +9,7 @@
     "build-master": "cross-env NODE_ENV=master vue-cli-service build --mode=master",
     "deploy-dev": "git pull && git push && npm run build-dev && cross-env NODE_ENV=dev node ./build/upload",
     "deploy-master": "git pull && git push && npm run build-master && cross-env NODE_ENV=master node ./build/upload",
+    "prepare": "husky install",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
