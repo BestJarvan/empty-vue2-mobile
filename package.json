@@ -1,0 +1,62 @@
+{
+  "name": "h5-activity",
+  "version": "0.1.0",
+  "private": true,
+  "author": "蒋亚辉 <j532547613@gmail.com>",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=serve vue-cli-service serve --mode=dev",
+    "build-dev": "cross-env NODE_ENV=dev vue-cli-service build --mode=dev",
+    "build-master": "cross-env NODE_ENV=master vue-cli-service build --mode=master",
+    "deploy-dev": "git pull && git push && npm run build-dev && cross-env NODE_ENV=dev node ./build/upload",
+    "deploy-master": "git pull && git push && npm run build-master && cross-env NODE_ENV=master node ./build/upload",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "axios": "^0.27.2",
+    "core-js": "^3.6.5",
+    "vant": "^2.12.47",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "node-sass": "^4.14.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^2.6.2",
+    "sass-loader": "^10.2.1",
+    "vue-eslint-parser": "^9.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js, vue}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{css, scss}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
